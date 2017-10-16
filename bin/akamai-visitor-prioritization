@@ -578,7 +578,7 @@ def create_version(args):
                     session, policy_id=policy_policy_id)
                 root_logger.info(
                     'Trying to create a new version of this policy...')
-                if policy_create_response.status_code == 200 or 201:
+                if policy_create_response.status_code == 200 or policy_create_response==201:
                     new_version = policy_create_response.json()['version']
                     policy_update_response = cloudlet_object.update_policy_version(
                         session, policy_policy_id, policy_details_json, new_version)
